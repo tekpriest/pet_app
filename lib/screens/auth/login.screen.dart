@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pet_app/helpers/app/colors.dart';
+import 'package:pet_app/helpers/constants/routes.dart';
 import 'package:pet_app/widgets/button.widget.dart';
 import 'package:pet_app/widgets/input.widget.dart';
 
@@ -68,8 +70,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     InputField(
                       controller: emailTextController,
                       hintText: 'Email',
-                        field: 'email',
-                        isOptional: false,
+                      field: 'email',
+                      isOptional: false,
                     ),
                     const SizedBox(height: 20),
                     InputField(
@@ -83,8 +85,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     Padding(
                       padding: const EdgeInsets.only(left: 10),
                       child: GestureDetector(
-                        onTap: () =>
-                            Navigator.pushNamed(context, '/auth/reset'),
+                        onTap: () => context.go(resetPassword),
                         child: Text(
                           'Forgot Password',
                           style:
@@ -150,9 +151,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     width: 5,
                   ),
                   GestureDetector(
-                    onTap: () {
-                      Navigator.pushNamed(context, '/auth/register');
-                    },
+                    onTap: () => context.go(register),
                     child: Text(
                       'Create Account',
                       style: TextStyle(
@@ -167,6 +166,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const SizedBox(height: 40),
               GestureDetector(
+                onTap: () => context.go(profile),
                 child: Container(
                     height: 60,
                     decoration: ShapeDecoration(

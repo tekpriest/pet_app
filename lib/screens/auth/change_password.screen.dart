@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pet_app/helpers/app/colors.dart';
+import 'package:pet_app/helpers/constants/routes.dart';
 import 'package:pet_app/widgets/input.widget.dart';
 
 class ChangePasswordScreen extends StatefulWidget {
@@ -91,9 +93,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
                     width: 5,
                   ),
                   GestureDetector(
-                    onTap: () {
-                      Navigator.pushNamed(context, '/auth/login');
-                    },
+                    onTap: () => context.go(login),
                     child: Text(
                       'Login',
                       style: TextStyle(
@@ -108,8 +108,7 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
               ),
               const SizedBox(height: 40),
               GestureDetector(
-                onTap: () =>
-                    Navigator.pushNamed(context, '/auth/password/change'),
+                onTap: () => context.go(changePassword),
                 child: Container(
                     height: 60,
                     decoration: ShapeDecoration(

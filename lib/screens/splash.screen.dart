@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:pet_app/helpers/app/colors.dart';
+import 'package:pet_app/helpers/constants/routes.dart';
 
 class Pages {
   static List<PageViewModel> pages = [
@@ -49,9 +51,10 @@ class Pages {
           Text(
             footer,
             style: TextStyle(
-                color: AppColors.textGray,
-                fontSize: 17,
-                fontWeight: FontWeight.w400),
+              color: AppColors.textGray,
+              fontSize: 17,
+              fontWeight: FontWeight.w400,
+            ),
           )
         ],
       ),
@@ -77,7 +80,7 @@ class _SplashScreenState extends State<SplashScreen> {
       showNextButton: false,
       controlsPosition: const Position(bottom: 24, right: 24, left: 24),
       globalFooter: GestureDetector(
-        onTap: () =>  Navigator.of(context).pushNamed('/auth/login'),
+        onTap: () => context.go(login),
         child: Container(
             height: 60,
             decoration: ShapeDecoration(

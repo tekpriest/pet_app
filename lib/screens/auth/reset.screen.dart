@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pet_app/helpers/app/colors.dart';
+import 'package:pet_app/helpers/constants/routes.dart';
 import 'package:pet_app/widgets/input.widget.dart';
 
 class ResetPasswordScreen extends StatefulWidget {
@@ -12,10 +14,6 @@ class ResetPasswordScreen extends StatefulWidget {
 class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
   final emailTextController = TextEditingController();
   List<Widget> _children = [];
-
-  void verifyEmail() {
-    setState(() {});
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -88,9 +86,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                     width: 5,
                   ),
                   GestureDetector(
-                    onTap: () {
-                      Navigator.pushNamed(context, '/auth/login');
-                    },
+                    onTap: () => context.go(login),
                     child: Text(
                       'Login',
                       style: TextStyle(
@@ -105,8 +101,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
               ),
               const SizedBox(height: 40),
               GestureDetector(
-                onTap: () =>
-                    Navigator.pushNamed(context, '/auth/password/change'),
+                onTap: () => context.go(changePassword),
                 child: Container(
                     height: 60,
                     decoration: ShapeDecoration(
@@ -122,5 +117,9 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
         ),
       ),
     );
+  }
+
+  void verifyEmail() {
+    setState(() {});
   }
 }
