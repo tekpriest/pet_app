@@ -26,10 +26,10 @@ class Pages {
 
   static PageViewModel _buildPage(String title, String asset, String footer) {
     return PageViewModel(
-      decoration: PageDecoration(
+      decoration: const PageDecoration(
         bodyAlignment: Alignment.centerLeft,
-        titlePadding: const EdgeInsets.only(top: 0),
-        bodyPadding: const EdgeInsets.only(top: 0, left: 0, right: 0),
+        titlePadding: EdgeInsets.only(top: 0),
+        bodyPadding: EdgeInsets.only(top: 0, left: 0, right: 0),
       ),
       title: '',
       // body:
@@ -39,7 +39,7 @@ class Pages {
         children: [
           Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 45,
               fontWeight: FontWeight.w600,
               // height: 0.03,
@@ -50,7 +50,7 @@ class Pages {
           ),
           Text(
             footer,
-            style: TextStyle(
+            style: const TextStyle(
               color: AppColors.textGray,
               fontSize: 17,
               fontWeight: FontWeight.w400,
@@ -80,7 +80,7 @@ class _SplashScreenState extends State<SplashScreen> {
       showNextButton: false,
       controlsPosition: const Position(bottom: 24, right: 24, left: 24),
       globalFooter: GestureDetector(
-        onTap: () => context.go(login),
+        onTap: () => context.go(loginRoute),
         child: Container(
             height: 60,
             decoration: ShapeDecoration(
@@ -99,7 +99,7 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
             ))),
       ),
-      dotsDecorator: DotsDecorator(
+      dotsDecorator: const DotsDecorator(
           activeColor: AppColors.primary,
           size: Size.square(8),
           color: AppColors.gray),

@@ -81,20 +81,19 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     'Already a member?',
                     style: TextStyle(
-                        color: Color(0xFF1A1919),
-                        fontSize: 15,
-                        fontWeight: FontWeight.w400,
-                        height: 0.13),
+                      color: Color(0xFF1A1919),
+                      fontSize: 15,
+                      fontWeight: FontWeight.w400,
+                      height: 0.13,
+                    ),
                   ),
-                  SizedBox(
-                    width: 5,
-                  ),
+                  const SizedBox(width: 5),
                   GestureDetector(
-                    onTap: () => context.go(login),
-                    child: Text(
+                    onTap: () => context.go(loginRoute),
+                    child: const Text(
                       'Login',
                       style: TextStyle(
                         color: Color(0xFFFD9340),
@@ -108,16 +107,17 @@ class _ChangePasswordScreenState extends State<ChangePasswordScreen> {
               ),
               const SizedBox(height: 40),
               GestureDetector(
-                onTap: () => context.go(changePassword),
+                onTap: () => context.go(changePasswordRoute),
                 child: Container(
-                    height: 60,
-                    decoration: ShapeDecoration(
-                      color: Color(AppColors.primary.value),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(31),
-                      ),
+                  height: 60,
+                  decoration: ShapeDecoration(
+                    color: Color(AppColors.primary.value),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(31),
                     ),
-                    child: Center(child: Text('Reset Passwrd'))),
+                  ),
+                  child: const Center(child: Text('Reset Passwrd')),
+                ),
               )
             ],
           ),

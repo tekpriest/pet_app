@@ -24,18 +24,22 @@ class BottomNavigation extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           GestureDetector(
-            onTap: () => context.go(home),
-            child: buildNavIcon(context, IconlyLight.home, home),
+            onTap: () => context.go(homeRoute),
+            child: buildNavIcon(
+                context, IconlyLight.home, IconlyBold.home, homeRoute),
           ),
           GestureDetector(
-            child: buildNavIcon(context, IconlyLight.timeCircle, recent),
+            child: buildNavIcon(context, IconlyLight.timeCircle,
+                IconlyBold.timeCircle, recentProductsRoute),
           ),
           GestureDetector(
-            child: buildNavIcon(context, IconlyLight.bag, cart),
+            child: buildNavIcon(
+                context, IconlyLight.bag, IconlyBold.bag, cartRoute),
           ),
           GestureDetector(
-            onTap: () => context.go(profile),
-            child: buildNavIcon(context, IconlyLight.profile, profile),
+            onTap: () => context.go(profileRoute),
+            child: buildNavIcon(
+                context, IconlyLight.profile, IconlyBold.profile, profileRoute),
           ),
         ],
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:pet_app/helpers/app/colors.dart';
 
 class InputField extends StatelessWidget {
@@ -7,6 +8,7 @@ class InputField extends StatelessWidget {
   final bool? obscureText;
   final String field;
   final bool isOptional;
+  final IconData? prefixIcon;
   const InputField({
     super.key,
     required this.controller,
@@ -14,6 +16,7 @@ class InputField extends StatelessWidget {
     required this.field,
     required this.isOptional,
     this.obscureText = false,
+    this.prefixIcon,
   });
 
   @override
@@ -23,13 +26,23 @@ class InputField extends StatelessWidget {
         if (isOptional) return null;
         value = value!.trim();
         if (value.isEmpty) {
-          return 'Please enter ${field} value';
+          return 'Please enter $field value';
         }
         return null;
       },
       controller: controller,
       obscureText: obscureText!,
       decoration: InputDecoration(
+        prefixIcon: prefixIcon != null
+            ? const Padding(
+              padding: EdgeInsets.only(left: 20, right: 5),
+              child: Icon(
+                  IconlyLight.search,
+                  color: Color(0xFFE5E4E3),
+                  size: 30,
+                ),
+            )
+            : null,
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(16),
           borderSide: const BorderSide(color: AppColors.alertError, width: 1.5),
@@ -57,7 +70,7 @@ class InputField extends StatelessWidget {
 
 class CheckboxField extends FormField<bool> {
   CheckboxField(
-      {Widget? title,
+      {super.key, Widget? title,
       FormFieldSetter<bool>? onSaved,
       FormFieldValidator<bool>? validator,
       bool initialValue = false,
@@ -84,4 +97,4 @@ class CheckboxField extends FormField<bool> {
                 controlAffinity: ListTileControlAffinity.leading,
               );
             });
-} 
+}

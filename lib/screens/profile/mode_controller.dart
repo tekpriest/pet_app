@@ -4,7 +4,7 @@ import 'package:pet_app/helpers/constants/screens/utils.dart';
 import 'package:pet_app/screens/profile/profile.screen.dart';
 import 'package:pet_app/screens/profile/seller_mode.screen.dart';
 
-enum ScreenMode { SELLER, PROFILE }
+enum ScreenMode { seller, profile }
 
 class ModeController extends StatefulWidget {
   const ModeController({super.key});
@@ -14,7 +14,7 @@ class ModeController extends StatefulWidget {
 }
 
 class _ModeControllerState extends State<ModeController> {
-  ScreenMode screenMode = ScreenMode.PROFILE;
+  ScreenMode screenMode = ScreenMode.profile;
 
   void toggleMode(ScreenMode target) {
     setState(() {
@@ -24,7 +24,7 @@ class _ModeControllerState extends State<ModeController> {
 
   @override
   Widget build(BuildContext context) {
-    bool safeBottom = screenMode == ScreenMode.PROFILE ? false : true;
+    bool safeBottom = screenMode == ScreenMode.profile ? false : true;
     return Scaffold(
       body: SafeArea(
         bottom: safeBottom,
@@ -47,22 +47,22 @@ class _ModeControllerState extends State<ModeController> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   GestureDetector(
-                    onTap: () => toggleMode(ScreenMode.PROFILE),
+                    onTap: () => toggleMode(ScreenMode.profile),
                     child: buildTogglePill(
-                        'Profile', screenMode == ScreenMode.PROFILE),
+                        'Profile', screenMode == ScreenMode.profile),
                   ),
                   GestureDetector(
-                    onTap: () => toggleMode(ScreenMode.SELLER),
+                    onTap: () => toggleMode(ScreenMode.seller),
                     child: buildTogglePill(
-                        'Seller Mode', screenMode == ScreenMode.SELLER),
+                        'Seller Mode', screenMode == ScreenMode.seller),
                   ),
                 ],
               ),
             ),
-            SizedBox(height: 30),
-            screenMode == ScreenMode.PROFILE
-                ? ProfileScreen()
-                : SellerModeScreen()
+            const SizedBox(height: 30),
+            screenMode == ScreenMode.profile
+                ? const ProfileScreen()
+                : const SellerModeScreen()
           ],
         ),
       ),

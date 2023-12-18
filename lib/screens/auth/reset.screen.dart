@@ -13,7 +13,6 @@ class ResetPasswordScreen extends StatefulWidget {
 
 class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
   final emailTextController = TextEditingController();
-  List<Widget> _children = [];
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +73,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     'Already a member?',
                     style: TextStyle(
                         color: Color(0xFF1A1919),
@@ -82,12 +81,12 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                         fontWeight: FontWeight.w400,
                         height: 0.13),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 5,
                   ),
                   GestureDetector(
-                    onTap: () => context.go(login),
-                    child: Text(
+                    onTap: () => context.go(loginRoute),
+                    child: const Text(
                       'Login',
                       style: TextStyle(
                         color: Color(0xFFFD9340),
@@ -101,7 +100,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
               ),
               const SizedBox(height: 40),
               GestureDetector(
-                onTap: () => context.go(changePassword),
+                onTap: () => context.go(changePasswordRoute),
                 child: Container(
                     height: 60,
                     decoration: ShapeDecoration(
@@ -110,7 +109,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                         borderRadius: BorderRadius.circular(31),
                       ),
                     ),
-                    child: Center(child: Text('Next'))),
+                    child: const Center(child: Text('Next'))),
               )
             ],
           ),

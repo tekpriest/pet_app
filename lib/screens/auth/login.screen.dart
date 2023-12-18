@@ -85,8 +85,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     Padding(
                       padding: const EdgeInsets.only(left: 10),
                       child: GestureDetector(
-                        onTap: () => context.go(resetPassword),
-                        child: Text(
+                        onTap: () => context.go(resetPasswordRoute),
+                        child: const Text(
                           'Forgot Password',
                           style:
                               TextStyle(color: AppColors.primary, fontSize: 12),
@@ -139,7 +139,7 @@ class _LoginScreenState extends State<LoginScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text(
+                  const Text(
                     "Don't have an account?",
                     style: TextStyle(
                         color: Color(0xFF1A1919),
@@ -147,12 +147,12 @@ class _LoginScreenState extends State<LoginScreen> {
                         fontWeight: FontWeight.w400,
                         height: 0.13),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 5,
                   ),
                   GestureDetector(
-                    onTap: () => context.go(register),
-                    child: Text(
+                    onTap: () => context.go(registerRoute),
+                    child: const Text(
                       'Create Account',
                       style: TextStyle(
                         color: Color(0xFFFD9340),
@@ -166,7 +166,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               const SizedBox(height: 40),
               GestureDetector(
-                onTap: () => context.go(profile),
+                onTap: () => context.go(profileRoute),
                 child: Container(
                     height: 60,
                     decoration: ShapeDecoration(

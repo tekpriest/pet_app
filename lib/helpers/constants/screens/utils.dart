@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pet_app/helpers/app/colors.dart';
 
 Widget buildFilter(String name, bool selected) {
   return Container(
-    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 18),
     decoration: ShapeDecoration(
       color: selected ? AppColors.primary : AppColors.gray,
       shape: RoundedRectangleBorder(
@@ -29,11 +28,11 @@ Widget buildStats(String count, String description) {
     children: [
       Text(
         count,
-        style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
       ),
       Text(
         description,
-        style: TextStyle(fontSize: 14),
+        style: const TextStyle(fontSize: 14),
       ),
     ],
   );
@@ -61,37 +60,37 @@ Widget buildProduct(String name, String amount, String img) {
         ),
       ),
       Positioned(
+        bottom: 35,
+        left: 10,
         child: Text(
           name,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 12,
             fontWeight: FontWeight.normal,
           ),
         ),
-        bottom: 35,
-        left: 10,
       ),
       Positioned(
-        child: Text('\$$amount',
-            style: TextStyle(
-                fontSize: 20, fontWeight: FontWeight.w600, height: 1.11)),
         bottom: 10,
         left: 10,
+        child: Text('\$$amount',
+            style: const TextStyle(
+                fontSize: 20, fontWeight: FontWeight.w600, height: 1.11)),
       ),
       Positioned(
+        right: 10,
+        bottom: 10,
         child: Container(
             padding: const EdgeInsets.all(5),
-            decoration: ShapeDecoration(
+            decoration: const ShapeDecoration(
               shape: OvalBorder(),
               color: AppColors.primary,
             ),
-            child: Icon(
+            child: const Icon(
               Icons.add,
               size: 25,
               color: Colors.white,
             )),
-        right: 10,
-        bottom: 10,
       ),
     ]),
   );
@@ -121,35 +120,63 @@ Widget buildTogglePill(String name, bool selected) {
 Widget buildNavIcon(
   BuildContext context,
   IconData icon,
+  IconData selectedIcon,
   String path,
 ) {
   bool isCurrent = GoRouterState.of(context).path == path;
   List<Widget> children = [
     Icon(
       isCurrent
-          ? IconlyBoldData(icon.codePoint)
-          : IconlyLightData(icon.codePoint),
+          ? selectedIcon
+          : icon,
       size: 30,
       color: isCurrent ? AppColors.primary : AppColors.textGray,
     ),
     const SizedBox(height: 3),
   ];
-  if (isCurrent)
+  if (isCurrent) {
     children.addAll(
       [
         Container(
           height: 5,
           width: 5,
-          decoration: ShapeDecoration(
+          decoration: const ShapeDecoration(
             shape: OvalBorder(),
             color: AppColors.primary,
           ),
         ),
       ],
     );
+  }
 
   return Column(
     mainAxisAlignment: MainAxisAlignment.center,
     children: children,
+  );
+}
+
+Widget buildQuicks(IconData icon) {
+  return Container(
+    width: 46,
+    height: 46,
+    padding: const EdgeInsets.all(5),
+    decoration: ShapeDecoration(
+      color: Colors.white,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+      ),
+      shadows: const [
+        BoxShadow(
+          color: Color(0x11000000),
+          blurRadius: 20,
+          offset: Offset(4, 4),
+          spreadRadius: 0,
+        ),
+      ],
+    ),
+    child: Icon(
+      icon,
+      size: 24,
+    ),
   );
 }

@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pet_app/screens/auth/change_password.screen.dart';
 import 'package:pet_app/screens/auth/login.screen.dart';
@@ -6,44 +5,61 @@ import 'package:pet_app/screens/auth/register.screen.dart';
 import 'package:pet_app/screens/auth/reset.screen.dart';
 import 'package:pet_app/screens/error.screen.dart';
 import 'package:pet_app/screens/home.screen.dart';
+import 'package:pet_app/screens/notificatin/controller.dart';
 import 'package:pet_app/screens/profile/mode_controller.dart';
-import 'package:pet_app/screens/splash.screen.dart';
+import 'package:pet_app/screens/profile/setting.screen.dart';
+import 'package:pet_app/screens/search.screen.dart';
 
-const home = '/';
-const login = '/auth/login';
-const register = '/auth/register';
-const resetPassword = '/auth/reset';
-const changePassword = '/auth/password/change';
-const profile = '/profile';
-const sellerMode = '/profile/seller';
-const recent = '/recent';
-const cart = '/card';
+const homeRoute = '/';
+const loginRoute = '/auth/login';
+const registerRoute = '/auth/register';
+const resetPasswordRoute = '/auth/reset';
+const changePasswordRoute = '/auth/password/change';
+const profileRoute = '/profile';
+const sellerModeRoute = '/profile/seller';
+const settingsRoute = '/profile/settings';
+const recentProductsRoute = '/recent';
+const cartRoute = '/cart';
+const notificationRoute = '/notification';
+const searchRoute = '/search';
 
 final GoRouter appRoutes = GoRouter(
   routes: [
     GoRoute(
-      path: home,
-      builder: (context, state) => const HomeScreen(),
+      path: homeRoute,
+      builder: (context, state) => HomeScreen(),
     ),
     GoRoute(
-      path: login,
+      path: loginRoute,
       builder: (context, state) => const LoginScreen(),
     ),
     GoRoute(
-      path: register,
+      path: registerRoute,
       builder: (context, state) => const RegisterScreen(),
     ),
     GoRoute(
-      path: resetPassword,
+      path: resetPasswordRoute,
       builder: (context, state) => const ResetPasswordScreen(),
     ),
     GoRoute(
-      path: changePassword,
+      path: changePasswordRoute,
       builder: (context, state) => const ChangePasswordScreen(),
     ),
     GoRoute(
-      path: profile,
+      path: profileRoute,
       builder: (context, state) => const ModeController(),
+    ),
+    GoRoute(
+      path: notificationRoute,
+      builder: (context, state) => const NotificationScreenController(),
+    ),
+    GoRoute(
+      path: searchRoute,
+      builder: (context, state) => SearchScreen(),
+    ),
+    GoRoute(
+      path: settingsRoute,
+      builder: (context, state) => const SettingScreen(),
     ),
   ],
   errorBuilder: (context, state) => const NotFoundScreen(),

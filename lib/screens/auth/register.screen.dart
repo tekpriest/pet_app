@@ -51,7 +51,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 "Create New\nAccount",
                 style: TextStyle(
                   fontSize: 45,
@@ -173,7 +173,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     width: 5,
                   ),
                   GestureDetector(
-                    onTap: () => context.go(login),
+                    onTap: () => context.go(loginRoute),
                     child: const Text(
                       'Login',
                       style: TextStyle(
@@ -188,7 +188,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ),
               const SizedBox(height: 40),
               GestureDetector(
-                onTap: () => context.go(profile),
+                onTap: () => context.go(profileRoute),
                 child: Container(
                     height: 60,
                     decoration: ShapeDecoration(

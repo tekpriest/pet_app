@@ -31,12 +31,12 @@ class SellerModeScreen extends StatelessWidget {
                   child: Container(
                     width: 120,
                     height: 120,
-                    decoration: ShapeDecoration(
+                    decoration: const ShapeDecoration(
                       shape: OvalBorder(),
                       color: AppColors.gray,
                     ),
-                    child: Center(
-                        child: const Text(
+                    child: const Center(
+                        child: Text(
                       "P",
                       style: TextStyle(
                         fontSize: 83,
@@ -49,7 +49,7 @@ class SellerModeScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 24),
-          Text(
+          const Text(
             "Pittashop",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 23),
           ),

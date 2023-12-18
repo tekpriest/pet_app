@@ -3,6 +3,9 @@
         android:label="pet_app"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+
+        <meta-data android:name="com.google.android.go.API_KEY"
+         android:value="AIzaSyCfR3-YLJO0tqQlr5hweVwXz9KklGsoFNs" />
         <activity
             android:name=".MainActivity"
             android:exported="true"

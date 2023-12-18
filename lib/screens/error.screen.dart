@@ -9,9 +9,15 @@ class NotFoundScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: ElevatedButton(
-          onPressed: () => context.go(home),
-          child: const Text("Go Home"),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text('Page Does Not Exist'),
+            ElevatedButton(
+              onPressed: () => context.go(homeRoute),
+              child: const Text("Go Home"),
+            ),
+          ],
         ),
       ),
     );

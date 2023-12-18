@@ -3,7 +3,6 @@ import 'package:go_router/go_router.dart';
 import 'package:pet_app/helpers/app/colors.dart';
 import 'package:pet_app/helpers/constants/routes.dart';
 import 'package:pet_app/helpers/constants/screens/utils.dart';
-import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:pet_app/widgets/bottom_navigation.widget.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -40,12 +39,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   child: Container(
                     width: 120,
                     height: 120,
-                    decoration: ShapeDecoration(
+                    decoration: const ShapeDecoration(
                       shape: OvalBorder(),
                       color: AppColors.gray,
                     ),
-                    child: Center(
-                        child: const Text(
+                    child: const Center(
+                        child: Text(
                       "A",
                       style: TextStyle(
                         fontSize: 83,
@@ -58,7 +57,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
           ),
           const SizedBox(height: 24),
-          Text(
+          const Text(
             "Abduldul",
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 23),
           ),
@@ -70,7 +69,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
               children: [
                 buildFilter('Saved', true),
                 const SizedBox(width: 24),
-                buildFilter('Edit Profile', false),
+                GestureDetector(
+                  onTap: () => context.go(settingsRoute),
+                  child: buildFilter('Edit Profile', false),
+                ),
               ],
             ),
           ),
@@ -89,41 +91,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
           ),
           const SizedBox(height: 24),
-          BottomNavigation(),
+          const BottomNavigation(),
         ],
       ),
-    );
-  }
-
-  Widget _buildNavIcon(IconData icon, String path) {
-    bool isCurrent = GoRouterState.of(context).path == path;
-    List<Widget> children = [
-      Icon(
-        isCurrent
-            ? IconlyBoldData(icon.codePoint)
-            : IconlyLightData(icon.codePoint),
-        size: 30,
-        color: isCurrent ? AppColors.primary : AppColors.textGray,
-      ),
-      const SizedBox(height: 3),
-    ];
-    if (isCurrent)
-      children.addAll(
-        [
-          Container(
-            height: 5,
-            width: 5,
-            decoration: ShapeDecoration(
-              shape: OvalBorder(),
-              color: AppColors.primary,
-            ),
-          ),
-        ],
-      );
-
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: children,
     );
   }
 }
