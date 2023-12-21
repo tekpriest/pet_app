@@ -9,6 +9,7 @@ class InputField extends StatelessWidget {
   final String field;
   final bool isOptional;
   final IconData? prefixIcon;
+  final String? labelText;
   const InputField({
     super.key,
     required this.controller,
@@ -17,6 +18,7 @@ class InputField extends StatelessWidget {
     required this.isOptional,
     this.obscureText = false,
     this.prefixIcon,
+    this.labelText,
   });
 
   @override
@@ -33,6 +35,7 @@ class InputField extends StatelessWidget {
       controller: controller,
       obscureText: obscureText!,
       decoration: InputDecoration(
+        labelText: labelText,
         prefixIcon: prefixIcon != null
             ? const Padding(
               padding: EdgeInsets.only(left: 20, right: 5),

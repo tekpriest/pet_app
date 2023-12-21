@@ -3,7 +3,7 @@ import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pet_app/helpers/app/colors.dart';
 import 'package:pet_app/helpers/constants/routes.dart';
-import 'package:pet_app/helpers/constants/screens/utils.dart';
+import 'package:pet_app/widgets/screen_header.widget.dart';
 
 class SettingScreen extends StatelessWidget {
   const SettingScreen({super.key});
@@ -17,29 +17,9 @@ class SettingScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                height: 46,
-                child: Stack(
-                  alignment: Alignment.center,
-                  children: [
-                    Positioned(
-                      left: 0,
-                      child: GestureDetector(
-                        onTap: () => context.go(profileRoute),
-                        child: buildQuicks(IconlyLight.arrowLeft2),
-                      ),
-                    ),
-                    const Center(
-                      child: Text(
-                        'Settings Page',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    )
-                  ],
-                ),
+              const ScreenHeader(
+                title: "Settings Page",
+                routeName: profileRoute,
               ),
               const SizedBox(height: 40),
               const Text(
@@ -50,23 +30,41 @@ class SettingScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 30),
-              SizedBox(
-                height: 350,
-                child: Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      _buildLinks(IconlyLight.profile, 'Account'),
-                      _buildLinks(IconlyLight.home, 'Address'),
-                      _buildLinks(IconlyLight.notification, 'Notification'),
-                      _buildLinks(IconlyLight.wallet, 'Payment Method'),
-                      _buildLinks(IconlyLight.dangerCircle, 'Privacy'),
-                      _buildLinks(IconlyLight.password, 'Security'),
-                    ],
+              Column(
+                children: [
+                  GestureDetector(
+                    onTap: () => context.go(accountSettingsRoute),
+                    child: _buildLinks(IconlyLight.profile, 'Account'),
                   ),
-                ),
+                  const SizedBox(height: 20),
+                  GestureDetector(
+                    onTap: () => context.go(homeRoute),
+                    child: _buildLinks(IconlyLight.home, 'Address'),
+                  ),
+                  const SizedBox(height: 20),
+                  GestureDetector(
+                    onTap: () => context.go(notificationSettingsRoute),
+                    child:
+                        _buildLinks(IconlyLight.notification, 'Notification'),
+                  ),
+                  const SizedBox(height: 20),
+                  GestureDetector(
+                    onTap: () => context.go(settingsRoute),
+                    child: _buildLinks(IconlyLight.wallet, 'Payment Method'),
+                  ),
+                  const SizedBox(height: 20),
+                  GestureDetector(
+                    onTap: () => context.go(privacySettingsRoute),
+                    child: _buildLinks(IconlyLight.dangerCircle, 'Privacy'),
+                  ),
+                  const SizedBox(height: 20),
+                  GestureDetector(
+                    onTap: () => context.go(securitySettingsRoute),
+                    child: _buildLinks(IconlyLight.password, 'Security'),
+                  ),
+                ],
               ),
-              const SizedBox(height: 30),
+              const Spacer(),
               const Text(
                 'Help',
                 style: TextStyle(
@@ -75,35 +73,31 @@ class SettingScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 30),
-              Expanded(
-                child: Column(
-                  children: [
-                    _buildLinks(IconlyLight.call, 'Contact Us'),
-                    const SizedBox(height: 20),
-                    _buildLinks(IconlyLight.document, 'FAQ'),
-                  ],
-                ),
+              Column(
+                children: [
+                  _buildLinks(IconlyLight.call, 'Contact Us'),
+                  const SizedBox(height: 20),
+                  _buildLinks(IconlyLight.document, 'FAQ'),
+                ],
               ),
-              Positioned(
-                bottom: 0,
-                child: GestureDetector(
-                  onTap: () => context.go(loginRoute),
-                  child: Container(
-                    height: 60,
-                    decoration: ShapeDecoration(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(31),
-                        side: const BorderSide(color: AppColors.primary),
-                      ),
+              const Spacer(),
+              GestureDetector(
+                onTap: () => context.go(loginRoute),
+                child: Container(
+                  height: 60,
+                  decoration: ShapeDecoration(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(31),
+                      side: const BorderSide(color: AppColors.primary),
                     ),
-                    child: const Center(
-                      child: Text(
-                        'Log Out',
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w700,
-                          color: AppColors.primary,
-                        ),
+                  ),
+                  child: const Center(
+                    child: Text(
+                      'Log Out',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w700,
+                        color: AppColors.primary,
                       ),
                     ),
                   ),

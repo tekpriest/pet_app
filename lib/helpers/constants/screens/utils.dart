@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_iconly/flutter_iconly.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pet_app/helpers/app/colors.dart';
+import 'package:pet_app/helpers/constants/routes.dart';
 
 Widget buildFilter(String name, bool selected) {
   return Container(

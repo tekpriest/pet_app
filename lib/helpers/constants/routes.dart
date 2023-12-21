@@ -6,6 +6,7 @@ import 'package:pet_app/screens/auth/reset.screen.dart';
 import 'package:pet_app/screens/error.screen.dart';
 import 'package:pet_app/screens/home.screen.dart';
 import 'package:pet_app/screens/notificatin/controller.dart';
+import 'package:pet_app/screens/profile/account.screen.dart';
 import 'package:pet_app/screens/profile/mode_controller.dart';
 import 'package:pet_app/screens/profile/setting.screen.dart';
 import 'package:pet_app/screens/search.screen.dart';
@@ -18,6 +19,11 @@ const changePasswordRoute = '/auth/password/change';
 const profileRoute = '/profile';
 const sellerModeRoute = '/profile/seller';
 const settingsRoute = '/profile/settings';
+const accountSettingsRoute = '$settingsRoute/account';
+const notificationSettingsRoute = '$settingsRoute/notification';
+const privacySettingsRoute = '$settingsRoute/privacy';
+const securitySettingsRoute = '$settingsRoute/security';
+const faqRoute = '/faq';
 const recentProductsRoute = '/recent';
 const cartRoute = '/cart';
 const notificationRoute = '/notification';
@@ -60,6 +66,14 @@ final GoRouter appRoutes = GoRouter(
     GoRoute(
       path: settingsRoute,
       builder: (context, state) => const SettingScreen(),
+    ),
+    GoRoute(
+      path: accountSettingsRoute,
+      builder: (context, state) => AccountSettingsScreen(),
+    ),
+    GoRoute(
+      path: notificationSettingsRoute,
+      builder: (context, state) => AccountSettingsScreen(),
     ),
   ],
   errorBuilder: (context, state) => const NotFoundScreen(),
